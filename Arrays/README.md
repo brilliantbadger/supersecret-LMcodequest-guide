@@ -220,7 +220,7 @@ print(newList.index(7))
 
 ### Finding Length of a List:
 ```py
-listName.len()
+len(listName)
 ```
 
 Example:
@@ -228,7 +228,7 @@ Example:
 ```py
 newList = [0, 1, 2, 3, 4, 5]
 
-print(newList.len())
+print(len(newList))
 # Output: 6
 ```
 
