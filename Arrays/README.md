@@ -12,6 +12,38 @@ Lists are a way to store multiple variables in order. There are multiple cases i
 
 >***NOTE:*** *As you work through and solve problems on your own, you will get a better sense of when and how to apply the concepts from this document.*
 
+## Table of Contents
+
+- **Basic Usage** 
+  - [Initializing a List](#initializing-a-list)
+  - [Retrieving Elements from a List](#retrieving-elements-from-a-list)
+  - [Modifying Elements](#modifying-elements)
+  - [Slicing a List](#slicing-a-list)
+- **Useful Methods**
+  - [Adding New Elements](#adding-new-elements)
+  - [Inserting New Elements](#inserting-new-elements)
+  - Removing Elements
+    - [Removing Elements (By Element)](#removing-elements-by-element)
+    - [Removing Elements (By Index)](#removing-elements-by-index)
+    - [Removing Elements (By Index + Return Element)](#removing-elements-by-index--return-element)
+  - [Finding Index of an Element](#finding-index-of-an-element)
+  - [Finding Length of a List](#finding-length-of-a-list)
+  - [Finding How Many Times an Element Appears](#finding-how-many-times-an-element-appears)
+  - Sorting a List
+    - [Sorting a List](#sorting-a-list)
+    - [Sorting a List (Case-Insensitive)](#sorting-a-list-case-insensitive)
+    - [Sorting a List (Reversed)](#sorting-a-list-reversed)
+  - [Reversing a List](#reversing-a-list)
+  - [Clearing a List](#clearing-a-list)
+- [Operations](#operations)
+- [Nested Lists](#nested-lists)
+- [Useful Code](#useful-code)
+- **Sample Problems and Solutions**
+  - [Easy](Easy)
+  - [Medium](Medium)
+  - [Hard](hard)
+- [Final Thoughts](#final-thoughts)
+
 ***
 
 ### Initializing a List
@@ -69,6 +101,20 @@ print(newList[5])
 
 ***
 
+### Modifying Elements
+
+To change an element in a list:
+
+```py
+newList = [0, 1, 2, 3, 4, 5]
+
+newList[2] = 'hello'
+print(newList)
+# Output: [0, 1, 'hello', 3, 4, 5]
+```
+
+***
+
 ### Slicing a List
 
 A slice is a new list that contains a range of elements from a sliced list. It is written in this notation:
@@ -116,19 +162,6 @@ print(newList[::-1])
 
 ***
 
-### Modifying Elements
-
-To change an element in a list:
-
-```py
-newList = [0, 1, 2, 3, 4, 5]
-
-newList[2] = 'hello'
-print(newList)
-# Output: [0, 1, 'hello', 3, 4, 5]
-```
-
-***
 
 ### Adding New Elements
 
@@ -171,27 +204,69 @@ print(newList)
 
 ***
 
-### Removing Elements
+### Removing Elements (By Element)
 
 ```py
-listName.remove(index)
+listName.remove(element)
 ```
 
 Example:
 
 ```py
-newList = [0, 1, 2, 3, 4, 5]
+newList = [0, 'hello', 2, 3, 4, 5]
 
-newList.remove(1)
+newList.remove('hello')
 print(newList)
-# Output: [0, 2, 3, 4, 5, ]
+# Output: [0, 2, 3, 4, 5]
 ```
 
->Explaination: This method removes the element at index 1 (1). The previous element at index 2 (2) now becomes index 1 and the pattern follows for the rest of the elements after index 1. Because of this the list also becomes 1 element smaller.
+>Explaination: This method removes an element ('hello'). The element at index 2 now becomes index 1 and the pattern follows for the rest of the elements after. Because of this the list becomes 1 element smaller.
 
 ***
 
-### Finding Index of Elements
+### Removing Elements (By Index)
+
+```py
+del listName[index]
+```
+
+Example:
+
+```py
+newList = [0, 'hello', 2, 3, 4, 5]
+
+del newList[1]
+print(newList)
+# Output: [0, 2, 3, 4, 5]
+```
+
+>Explaination: This method removes the element at index 1 ('hello'). The element at index 2 now becomes index 1 and the pattern follows for the rest of the elements after. Because of this the list becomes 1 element smaller.
+
+***
+
+### Removing Elements (By Index + Return Element)
+
+```py
+listName.pop(index)
+```
+
+Example:
+
+```py
+newList = [0, 'hello', 2, 3, 4, 5]
+
+removedElement = newList.pop(1)
+print(newList)
+# Output: [0, 2, 3, 4, 5]
+print(removedElement)
+# Output: 'hello'
+```
+
+>Explaination: This method removes the element at index 1 ('hello') and returns the removed element ('hello'). The returned element can then be stored in a variable (removedElement). The element at index 2 now becomes index 1 and the pattern follows for the rest of the elements after. Because of this the list becomes 1 element smaller.
+
+***
+
+### Finding Index of an Element
 
 ```py
 listName.index(element, start, stop)
@@ -218,7 +293,7 @@ print(newList.index(7))
 
 ***
 
-### Finding Length of a List:
+### Finding Length of a List
 ```py
 len(listName)
 ```
@@ -278,6 +353,49 @@ newList2.sort()
 
 ***
 
+### Sorting a List (Case-Insensitive)
+
+```py
+listName.sort(key=str.lower)
+```
+
+Example:
+
+```py
+newList =  ['a', 'C', 'b']
+
+newList.sort()
+print(newList)
+# Output: ['C', 'a', 'b']
+
+newList.sort(key=str.lower)
+# Output: ['a', 'b', 'C']
+```
+
+>Explaination: When comparing strings using ".sort()", uppercased characters will be less than lowercased characters; it is case-sensitive. Passing the "key=str.lower" arguement through the ".sort()" parameter allows string comparison that is case-insensitive.
+
+***
+
+### Sorting a List (Reversed)
+
+```py
+listName.sort(reverse=True)
+```
+
+Example:
+
+```py
+newList =  [0, 3, 2, 1, 5, 4]
+
+newList.sort(reverse=True)
+print(newList)
+# Output: [5, 4, 3, 2, 1]
+```
+
+>Explaination: This method sorts a list in reverse order. Alternatively, you can use the ."sort()" method normally and reverse it using ".reverse()".
+
+***
+
 ### Reversing a List
 
 ```py
@@ -318,7 +436,7 @@ print(newList)
 
 ***
 
-### Operations:
+### Operations
 
 You can add lists together!
 
@@ -340,3 +458,35 @@ newList = list1 * 3
 print(newList)
 # Output: [0, 1, 2, 0, 1, 2, 0, 1, 2]
 ```
+
+>***NOTE:*** *Where's subtraction? More information can be found [here](#useful-code)*
+
+***
+
+### Nested Lists
+
+You can put lists inside of lists! This can help you when the data given is more organized and manageable in a grid-like layout.
+
+To initialize a Nested List:
+
+```py
+NewList = [[ 0, 1, 2, 3],
+	       [ 4, 5, 6, 7],
+           [8, 9, 10, 11]]
+
+# or alternatively
+
+NewList = [[ 0, 1, 2, 3], [ 4, 5, 6, 7], [8, 9, 10, 11]]
+```
+
+***
+
+### Dictionaries
+
+***
+
+### Useful Code
+
+***
+
+### Final Thoughts

@@ -1,9 +1,9 @@
 for _ in range(int(input())):
-    inp = input().split()
-
     database = []
     report = []
-    
+
+    inp = input().split()
+
     for i in range(int(inp[0])):
         database.append(input())
     for i in range(int(inp[1])):
