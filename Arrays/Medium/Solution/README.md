@@ -122,8 +122,8 @@ Assign the integer values from the list (stat) to the respective key in the dict
 ```py
         for data in database:
             if name == data[0]:
-                for index in range(len(stat)):
-                    character[data[index+1]] = stat[index]
+                for index, x in enumerate(stat):
+                    character[data[index+1]] = x
 ```          
 
 >***NOTE:*** *The reason why we pull the value of data[index+1] is because the first element in the list is taken up by the class name. The elements following that contain the ability names from highest to lowest priority. The first element in the stat list, which was the class name, was removed earlier, so the first element is now the highest integer.* 
