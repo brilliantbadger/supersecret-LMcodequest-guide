@@ -1,7 +1,7 @@
 for _ in range(int(input())):
-    inp = input().split()
-
     database = []
+
+    inp = input().split()
 
     for i in range(int(inp[0])):
         info = input().split()
