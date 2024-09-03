@@ -17,7 +17,7 @@ ROGUE 8 8 10 11 12 13
 WIZARD 10 10 13 13 15 15
 ```
 
-Sample Output:w
+Sample Output:
 
 ```
 WARRIOR
