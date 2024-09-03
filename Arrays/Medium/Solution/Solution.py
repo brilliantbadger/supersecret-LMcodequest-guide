@@ -25,8 +25,8 @@ for _ in range(int(input())):
         
         for data in database:
             if name == data[0]:
-                for index in range(len(stat)):
-                    character[data[index+1]] = stat[index]
+                for index, x in enumerate(stat):
+                    character[data[index+1]] = x
                      
         print(name)
         for key,value in character.items():
