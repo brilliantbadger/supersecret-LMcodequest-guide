@@ -79,5 +79,5 @@ Print out the list (inspect) one line at a time [Lines 15-16]:
         print(i)
 ```
 
-> **Final Thoughts:** The difficulty of solving this problem will probably come from sorting the list in alphabetical order (case-insensitive). It is important to understand how each method works so you do not fall into various trickery and traps you might be presented with.
+> **Final Thoughts:** The difficulty of solving this problem will most likely come from sorting the list in alphabetical order (case-insensitive). It is important to understand how each method works so you do not fall into various trickery and traps you might be presented with.
 
