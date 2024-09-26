@@ -69,7 +69,7 @@ Read input data [Line 4]:
     inp = input().split()
 ```
 
-Store the class name and abilities as a list (info) and add it to the empty list that was created earlier (database) [Lines 6-8]:
+Store the class name and abilities as a list (info) and add it to the empty list created earlier (database) [Lines 6-8]:
 
 ```py
     for i in range(int(inp[0])):
@@ -90,7 +90,7 @@ Remove the first element of the list (info) and store it as a variable (name) [L
         name = info.pop(0)
 ```
 
->***NOTE:*** *We removed the first element (which contains letters) in order to convert the rest of the elements (which contains integers) from strings to integers. However, we still need the element, hence why we used .pop()* 
+>***NOTE:*** *We removed the first element (which contains letters) in order to convert the rest of the elements (which contains integers) from strings to integers. However, we still need the element, hence why we used .pop().* 
 
 Convert the remaining elements in the list (info) from strings to integers and put the converted elements in a new list (stat) [Line 14]:
 
