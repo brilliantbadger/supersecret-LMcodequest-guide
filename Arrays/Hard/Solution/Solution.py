@@ -48,6 +48,7 @@ for _ in range(int(input())):
                             isSquare = False
                         if(layout[rowIndex+j][colIndex+(squareSize*2)-1] != '|'):
                             isSquare = False
+                            
                     if(isSquare):
                         numOfSquares += 1
     
