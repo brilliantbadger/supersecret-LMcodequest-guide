@@ -1,6 +1,6 @@
-# Arrays (Lists)
+# Lists
 
->***NOTE:*** *Although the LMcodequest has a category called Arrays, it is much easier to use lists as they have different properties and methods that make them more suitable to solve the given problems.*
+>***NOTE:*** *Although the category in the LMcodequest is called Arrays, it is much easier to use lists in python as they have different properties and methods that make them more suitable to solve the given problems.*
 
 Lists are a way to store multiple variables in order. There are multiple cases in which a list would greatly aid you in both managing and processing multiple elements. 
 
@@ -37,16 +37,26 @@ Lists are a way to store multiple variables in order. There are multiple cases i
   - [Clearing a List](#clearing-a-list)
 - [Operations](#operations)
 - [Nested Lists](#nested-lists)
-- [Useful Code](#useful-code)
+- [Dictionaries](#dictionaries)
+- **Useful Code**
+  - Iterating over a List
+    - [Using a for loop](#using-a-for-loop)
+    - [Using a for loop and enumerate()](#using-a-for-loop-and-enumerate)
+    - [Using a for loop and range()](#using-a-for-loop-and-range)
+  - [Converting ALL String Elements to Integers](#converting-all-string-elements-to-integers)
+  - [Converting ALL Integer Elements to Strings](#converting-all-integer-elements-to-strings)
+  - Adding Padding
+    - [Left Side](#left-side)
+    - [Right Side](#right-side)
+  - [Subtracting Lists](#subtracting-lists)
 - **Sample Problems and Solutions**
   - [Easy](Easy)
   - [Medium](Medium)
   - [Hard](hard)
 - [Final Thoughts](#final-thoughts)
 
-***
 
-### Initializing a List
+## Initializing a List
 
 ```py
 newList = [0, 1, 2, 3, 4]
@@ -58,9 +68,7 @@ Lists can also hold different type of variables. Here is an exmaple of a list th
 newList = [0, 1, 'hello', 'world', True]
 ```
 
-***
-
-### Retrieving Elements from a List
+## Retrieving Elements from a List
 
 To retrive elements from a list, an index operator is used. It is written in this notation:
 ```py
@@ -99,9 +107,7 @@ print(newList[5])
 # Output: IndexError: list index out of range
 ```
 
-***
-
-### Modifying Elements
+## Modifying Elements
 
 To change an element in a list:
 
@@ -113,9 +119,7 @@ print(newList)
 # Output: [0, 1, 'hello', 3, 4, 5]
 ```
 
-***
-
-### Slicing a List
+## Slicing a List
 
 A slice is a new list that contains a range of elements from a sliced list. It is written in this notation:
 
@@ -160,10 +164,7 @@ print(newList[::-1])
 # Output: [5, 4, 3, 2, 1, 0]
 ```
 
-***
-
-
-### Adding New Elements
+## Adding New Elements
 
 ```py
 listName.append(newElement)
@@ -181,10 +182,7 @@ print(NewList)
 
 >Explaination: This method add a new element (6) to the end of a list (NewList). The list becomes 1 element bigger as a result.
 
-***
-
-
-### Inserting New Elements
+## Inserting New Elements
 
 ```py
 listName.insert(index, newElement)
@@ -202,9 +200,7 @@ print(newList)
 
 >Explaination: This method inserts a new element (“hello”) to a list (NewList). The previous element at index 1 (1) now becomes index 2 and the pattern follows for the rest of the elements after index 1. Because of this the list also becomes 1 element bigger.
 
-***
-
-### Removing Elements (By Element)
+## Removing Elements (By Element)
 
 ```py
 listName.remove(element)
@@ -222,9 +218,7 @@ print(newList)
 
 >Explaination: This method removes an element ('hello'). The element at index 2 now becomes index 1 and the pattern follows for the rest of the elements after. Because of this the list becomes 1 element smaller.
 
-***
-
-### Removing Elements (By Index)
+## Removing Elements (By Index)
 
 ```py
 del listName[index]
@@ -242,9 +236,7 @@ print(newList)
 
 >Explaination: This method removes the element at index 1 ('hello'). The element at index 2 now becomes index 1 and the pattern follows for the rest of the elements after. Because of this the list becomes 1 element smaller.
 
-***
-
-### Removing Elements (By Index + Return Element)
+## Removing Elements (By Index + Return Element)
 
 ```py
 listName.pop(index)
@@ -264,9 +256,7 @@ print(removedElement)
 
 >Explaination: This method removes the element at index 1 ('hello') and returns the removed element ('hello'). The returned element can then be stored in a variable (removedElement). The element at index 2 now becomes index 1 and the pattern follows for the rest of the elements after. Because of this the list becomes 1 element smaller.
 
-***
-
-### Finding Index of an Element
+## Finding Index of an Element
 
 ```py
 listName.index(element, start, stop)
@@ -291,9 +281,7 @@ print(newList.index(7))
 
 >Explaination: This method returns the index of the first element whose value equals to the value passed through the element parameter. The start and stop arguments are optional; they give parameters to search and works similar to the parameters in slicing. If start and stop arguments are passed the method would return the index of the first element that equals to the value passed through the element parameter starting from index start and ending index stop (exclusive). If no elements are found then a “ValueError” error is returned.
 
-***
-
-### Finding Length of a List
+## Finding Length of a List
 ```py
 len(listName)
 ```
@@ -309,8 +297,7 @@ print(len(newList))
 
 >Explaination: This method returns the length of a list (newList). It should be noted that this method does not use zero-based numbering to count the length of a list.
 
-***
-### Finding How Many Times an Element Appears
+## Finding How Many Times an Element Appears
 
 ```py
 listName.count(element)
@@ -327,9 +314,7 @@ print(newList.count(2))
 
 >Explaination: This method returns how many times an element (2) appears in a list (NewList).
 
-***
-
-### Sorting a List
+## Sorting a List
 
 ```py
 listName.sort()
@@ -351,9 +336,7 @@ newList2.sort()
 
 >Explaination: This method modifies a list (NewList) so that every element inside the list is in order. You cannot compare different types of varaibles in python, so you cannot sort a list that holds different types of variables. If you attempt to do so, you will be met with a "TypeError" Error. 
 
-***
-
-### Sorting a List (Case-Insensitive)
+## Sorting a List (Case-Insensitive)
 
 ```py
 listName.sort(key=str.lower)
@@ -374,9 +357,7 @@ newList.sort(key=str.lower)
 
 >Explaination: When comparing strings using ".sort()", uppercased characters will be less than lowercased characters; it is case-sensitive. Passing the "key=str.lower" arguement through the ".sort()" parameter allows string comparison that is case-insensitive.
 
-***
-
-### Sorting a List (Reversed)
+## Sorting a List (Reversed)
 
 ```py
 listName.sort(reverse=True)
@@ -394,9 +375,7 @@ print(newList)
 
 >Explaination: This method sorts a list in reverse order. Alternatively, you can use the ."sort()" method normally and reverse it using ".reverse()".
 
-***
-
-### Reversing a List
+## Reversing a List
 
 ```py
 listName.reverse()
@@ -414,9 +393,7 @@ print(newList)
 
 >Explaination: This method reverses the order of the elements in a list (NewList).
 
-***
-
-### Clearing a List
+## Clearing a List
 
 ```py
 listName.clear()
@@ -434,9 +411,7 @@ print(newList)
 
 >Explaination: This method removes everything in a list.
 
-***
-
-### Operations
+## Operations
 
 You can add lists together!
 
@@ -459,11 +434,11 @@ print(newList)
 # Output: [0, 1, 2, 0, 1, 2, 0, 1, 2]
 ```
 
->***NOTE:*** *Where's subtraction? More information can be found [here](#useful-code)*
+>***NOTE:*** *Where's subtraction? More information can be found [here](#subtracting-lists)*
 
-***
+# Nested Lists
 
-### Nested Lists
+## Inititalizing a Nested List
 
 You can put lists inside of lists! This can help you when the data given is more organized and manageable in a grid-like layout.
 
@@ -478,16 +453,190 @@ NewList = [[ 0, 1, 2, 3],
 
 NewList = [[ 0, 1, 2, 3], [ 4, 5, 6, 7], [8, 9, 10, 11]]
 ```
+
+## Retrieving Elements from a Nested List
+
+
+
 >***NOTE:*** *All the methods used in lists can be applied to nested lists*
 
 ***
 
-### Dictionaries
+# Dictionaries
 
 ***
 
-### Useful Code
+# Useful Code
 
-***
+## Iterating over a List
 
-### Final Thoughts
+### Using a *for loop*
+
+```py
+newList = ['1', '2', '3', '4', '5']
+
+for element in newList:
+  print(element)
+
+# Output: '1'
+#         '2'
+#         '3'
+#         '4'
+#         '5'
+```
+
+### Using a *for loop* and *enumerate()*
+
+```py
+newList = ['1', '2', '3', '4', '5']
+
+for index, element in enumerate(newList):
+  print(index + ' ' + element)
+
+# Output: 0 '1'
+#         1 '2'
+#         2 '3'
+#         3 '4'
+#         4 '5'
+```
+
+You can also change the starting index for enumeration!
+
+```py
+newList = ['1', '2', '3', '4', '5']
+
+for index, element in enumerate(newList, start=2):
+  # starts iterating from index 2
+  print(index + ' ' + element)
+
+# Output: 0 '1'
+#         1 '2'
+#         2 '3'
+#         3 '4'
+#         4 '5'
+```
+
+### Using a *for loop* and *range()*
+
+```py
+newList = ['1', '2', '3', '4', '5']
+
+for index in range(len(newList)):
+  print(element)
+
+# Output: '1'
+#         '2'
+#         '3'
+#         '4'
+#         '5'
+```
+
+Using the range() function provides more flexibility and allows for complexity. For example, you can choose what index in the list to start iterating from and/or add incrementation:
+
+```py
+newList = ['1', '2', '3', '4', '5', '6']
+
+for index in range(1, len(newList), 2):
+  # starts iterating from index 1
+  # stops at index len(newList) (EXCLUSIVE)
+  # increments by 2 
+  print(newList[index])
+
+# Output: '2'
+#         '4'
+#         '6'
+```
+
+>***NOTE:*** *For more information on the range() function can be found [here] (placeholder)*
+
+## Converting ALL String Elements to Integers
+
+Need to convert all the elements in a list form strings to integers? Check this out!
+
+```py
+newList = ['1', '2', '3', '4', '5']
+
+convertedList = list(map(int, newList))
+print(convertedList)
+
+# Output: [1, 2, 3, 4, 5]
+```
+
+Alternatively, you can utilize for loops and typecasting:
+
+```py
+newList = ['1', '2', '3', '4', '5']
+convertedList = []
+
+for element in newList:
+  convertedList.appened(int(element))
+print(convertedList)
+
+# Output: [1, 2, 3, 4, 5]
+```
+
+>***NOTE:*** *Make sure all the elements in the list you are converting to integers CAN be converted to integers. If you try to convert a non-integer value to an integer, you will be met with a "ValueError" error.*
+
+## Converting ALL Integer Elements to Strings
+
+Need to convert all the elements in a list from integers to strings? Check this out!
+
+```py
+newList = [1, 2, 3, 4, 5]
+
+convertedList = list(map(str, newList))
+print(convertedList)
+
+# Output: ['1', '2', '3', '4', '5']
+```
+
+Alternatively, you can utilize for loops and typecasting:
+
+```py
+newList = [1, 2, 3, 4, 5]
+convertedList = []
+
+for element in newList:
+  convertedList.appened(str(element))
+print(convertedList)
+
+# Output: ['1', '2', '3', '4', '5']
+```
+
+## Adding Padding
+
+### Left Side
+
+```py
+```
+
+### Right Side
+
+```py
+    for index, row in enumerate(layout):
+        padding = []
+
+        if len(row) < maxRowLen:
+            diff = maxRowLen - len(row)
+
+            for i in range(diff):
+                padding.append(' ')
+            
+            layout[index] = row + padding
+```
+
+## Subtracting Lists
+
+Need to remove elements in a list from another list? Check this out!
+
+```py
+list1 = [0, 1, 2, 3, 4, 5]
+list2 = [3, 4, 5]
+
+newList = list(set(list1) - set(list2))
+print(newList)
+
+# Output: [1, 2, 3]
+```
+
+# Final Thoughts

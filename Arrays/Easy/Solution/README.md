@@ -61,7 +61,7 @@ Read input data and add names of systems to their respective lists (Lines 5-10):
 Compare the two lists (database, report) and create new list (inspect) that contains elements that are present in the database list but not in the report list [Line 12]:
 
 ```py
-    inspect = list(set(database) - set(report)):
+    inspect = list(set(database) - set(report))
 ```
 
 >***NOTE:*** *The problem explicitly stated that "[n]ames are unique within a test case. This means that there will be no duplicates in the test cases. Because of this fact, we can use the code in Line 12. If there were any duplicates we would have to use a for loop and .remove(). More details can be found [here](../../README.md#operations)* 
