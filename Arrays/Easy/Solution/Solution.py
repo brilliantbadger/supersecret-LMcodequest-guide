@@ -14,6 +14,3 @@ for _ in range(int(input())):
 
     for i in inspect:
         print(i)
-
-#trick in this problem is sorting in alphabetical order but case-insensitive
-#make sure to add this to main README.md
