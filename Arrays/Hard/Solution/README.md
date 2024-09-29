@@ -75,35 +75,31 @@ Find the maximum length of a list (row) by comparing it to the previous maximum 
                 maxRowLen = len(row)
 ```
 
-Using the stored value of the maximum row length, add blank elements (' ') to the end of each row so the length becomes uniform with the greatest size [Lines 17-26]:
+Using the stored value of the maximum row length, add blank elements (' ') to the end of each row so the length becomes uniform with the greatest size [Lines 17-22]:
 
 ```py
     for index, row in enumerate(layout):
-        padding = []
-
         if len(row) < maxRowLen:
             diff = maxRowLen - len(row)
 
             for i in range(diff):
-                padding.append(' ')
-            
-            layout[index] = row + padding
+                layout[index].append(' ')
 ```
 
-Use a nested for loop that iterates through every index where the '_' element could appear [Lines 28-29]:
+Use a nested for loop that iterates through every index where the '_' element could appear [Lines 24-25]:
 
 ```py
     for rowIndex, row in enumerate(layout[:-1]):
         for colIndex in range(1, len(row), 2):
 ```
 
-Check if the current element is a '_' character [Line 30]:
+Check if the current element is a '_' character [Line 26]:
 
 ```py
             if(layout[rowIndex][colIndex] == '_'):
 ```
 
-Based on the current index of the element, determine the maximum possible size a square can be formed in the layout and store the value in a variable (maxSquareSize) [Lines 31-37]:
+Based on the current index of the element, determine the maximum possible size a square can be formed in the layout and store the value in a variable (maxSquareSize) [Lines 27-33]:
 
 ```py
                 disToRightEdge = (len(row) - colIndex)/2
@@ -115,13 +111,13 @@ Based on the current index of the element, determine the maximum possible size a
                     maxSquareSize = int(disToBot)
 ```
 
-Iterate through the possible number of squares that can be formed [Line 39]:
+Iterate through the possible number of squares that can be formed [Line 35]:
 
 ```py
                 for squareSize in range(1, maxSquareSize+1):
 ```
 
-Check if a square with a size of 'squareSize' can be made in the index of the tile layout [Lines 40-50]:
+Check if a square with a size of 'squareSize' can be made in the index of the tile layout [Lines 36-46]:
 
 ```py
                     isSquare = True
@@ -137,17 +133,17 @@ Check if a square with a size of 'squareSize' can be made in the index of the ti
                             isSquare = False
 ```
 
-If a square with a size of 'squareSize' can be made, increment the variable storing the amount of squares found (numOfSquares) [Lines 52-53]:
+If a square with a size of 'squareSize' can be made, increment the variable storing the amount of squares found (numOfSquares) [Lines 48-49]:
 
 ```py
                     if(isSquare):
                         numOfSquares += 1
 ```
 
-Print out the amount of squares found in the tile layout [Line 55]:
+Print out the amount of squares found in the tile layout [Line 51]:
 
 ```py
     print(numOfSquares)
 ```
 
-> **Final Thoughts:** This problem truly tests your ability to navigate through a nested list using for loops. Besides the complex logic used to solve this problem, it is also important that you account for any errors you might come across. The most common error that you will face while working with lists is the “IndexError: list index out of range” error. Think through your pseudocode and program to make sure you won't have to deal with errors. It can also be distracting trying to optimize the code. The solution provided can be heavily optimized, but the important thing is that it works. Your main goal is to solve the problem. Although the LMcodequest does measure the runtime of your code, it is rarely used, as it only becomes important in tiebreakers.
+> **Final Thoughts:** This problem truly tests your ability to navigate through a nested list using for loops. Besides the complex logic used to solve this problem, it is also important that you account for any errors you might come across. The most common error that you will face while working with lists is the “IndexError: list index out of range” error. Think through your pseudocode and program to make sure you won't have to deal with errors. It can also be distracting trying to optimize the code. The solution provided can be heavily optimized, but the important thing is that it works. Your main goal is to solve the problem. Although the LMcodequest does measure the runtime of your code, it is rarely used, as it only becomes relevant in tiebreakers.

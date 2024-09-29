@@ -58,26 +58,26 @@ Read input data and add names of systems to their respective lists (Lines 5-10):
         report.append(input())
 ```
 
-Compare the two lists (database, report) and create new list (inspect) that contains elements that are present in the database list but not in the report list [Line 12]:
+Create new list (inspect) that contains elements that are present in the database list but not in the report list [Line 12-14]:
 
 ```py
-    inspect = list(set(database) - set(report))
+    inspect = database
+    for element in list2:
+        inspect.remove(element)
 ```
 
->***NOTE:*** *The problem explicitly stated that "[n]ames are unique within a test case. This means that there will be no duplicates in the test cases. Because of this fact, we can use the code in Line 12. If there were any duplicates we would have to use a for loop and .remove(). More details can be found [here](../../README.md#operations)* 
-
-Sort the new list (inspect) in alphabetical order (case-insensitive) [Line 12]:
+Sort the new list (inspect) in alphabetical order (case-insensitive) [Line 16]:
 
 ```py
     inspect.sort(key=str.lower)
 ```
 
-Print out the list (inspect) one line at a time [Lines 15-16]:
+Print out the list (inspect) one line at a time [Lines 118-19]:
 
 ```py
     for i in inspect:
         print(i)
 ```
 
-> **Final Thoughts:** The difficulty of solving this problem will most likely come from sorting the list in alphabetical order (case-insensitive). It is important to understand how each method works so you do not fall into various trickery and traps you might be presented with.
+> **Final Thoughts:** The difficulty of solving this problem will most likely come from sorting the list in alphabetical order (case-insensitive). It is important to understand how each method works so you do not fall into various traps you might be presented with.
 

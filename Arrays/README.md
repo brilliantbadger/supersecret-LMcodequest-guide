@@ -17,8 +17,9 @@ Lists are a way to store multiple variables in order. There are multiple cases i
 - **Basic Usage** 
   - [Initializing a List](#initializing-a-list)
   - [Retrieving Elements from a List](#retrieving-elements-from-a-list)
-  - [Modifying Elements](#modifying-elements)
+  - [Modifying Elements in a List](#modifying-elements-in-a-list)
   - [Slicing a List](#slicing-a-list)
+  - [Operations](#operations)
 - **Useful Methods**
   - [Adding New Elements](#adding-new-elements)
   - [Inserting New Elements](#inserting-new-elements)
@@ -35,14 +36,19 @@ Lists are a way to store multiple variables in order. There are multiple cases i
     - [Sorting a List (Reversed)](#sorting-a-list-reversed)
   - [Reversing a List](#reversing-a-list)
   - [Clearing a List](#clearing-a-list)
-- [Operations](#operations)
 - [Nested Lists](#nested-lists)
+  - [Initializing a Nested List](#inititalizing-a-nested-list)
+  - [Retrieving Elements from a Nested List](#retrieving-elements-from-a-list)
+  - [Modifying Elements in a Nested List](#modifying-elements-in-a-nested-list)
+  - [Slicing a Nested List](#slicing-a-nested-list)
 - [Dictionaries](#dictionaries)
 - **Useful Code**
   - Iterating over a List
     - [Using a for loop](#using-a-for-loop)
     - [Using a for loop and enumerate()](#using-a-for-loop-and-enumerate)
     - [Using a for loop and range()](#using-a-for-loop-and-range)
+  - Iterating over a Nested List
+  - Iterating over a Dictionary
   - [Converting ALL String Elements to Integers](#converting-all-string-elements-to-integers)
   - [Converting ALL Integer Elements to Strings](#converting-all-integer-elements-to-strings)
   - Adding Padding
@@ -71,6 +77,7 @@ newList = [0, 1, 'hello', 'world', True]
 ## Retrieving Elements from a List
 
 To retrive elements from a list, an index operator is used. It is written in this notation:
+
 ```py
 listName[index]
 ```
@@ -86,6 +93,7 @@ print(newList[0])
 print(newList[2]) 
 # Output: 'hello'
 ```
+
 You can also use negative indexes! Just remember that the index starts from the end.
 
 ```py
@@ -105,9 +113,12 @@ newList = [0, 1, 'hello', 'world', True]
 
 print(newList[5]) 
 # Output: IndexError: list index out of range
+
+print(newList[-6]) 
+# Output: IndexError: list index out of range
 ```
 
-## Modifying Elements
+## Modifying Elements in a List
 
 To change an element in a list:
 
@@ -117,6 +128,10 @@ newList = [0, 1, 2, 3, 4, 5]
 newList[2] = 'hello'
 print(newList)
 # Output: [0, 1, 'hello', 3, 4, 5]
+
+newList[-1] = 'hello'
+print(newList)
+# Output: [0, 1, 'hello', 3, 4, 'hello']
 ```
 
 ## Slicing a List
@@ -130,7 +145,7 @@ listName[start:end:step]
 # step  = the increment in which the elements are added to the slice | DEFAULT VALUE = 1
 ```
 
-Remember that the stop index is not included in the sliced list. The default value of the start arguement is 0, so you can but you do not have to write the 0. The same thing applys for the end and step arguements.
+Remember that the stop index is not included in the sliced list. The default value of the start arguement is 0, so you can but you do not have to write the 0. The same thing applies for the end and step arguements.
 
 ```py
 newList = [0, 1, 'hello', 'world', True]
@@ -163,6 +178,33 @@ print(newList[:-2])
 print(newList[::-1])
 # Output: [5, 4, 3, 2, 1, 0]
 ```
+
+## Operations
+
+You can add lists together!
+
+```py
+list1 = [0, 1, 2]
+list2 = [3, 4, 5]
+
+newList= list1 + list2
+print(newList)
+# Output: [0, 1, 2, 3, 4, 5]
+```
+
+Multiplication... woah!
+
+```py
+list1 = [0, 1, 2]
+
+newList = list1 * 3
+print(newList)
+# Output: [0, 1, 2, 0, 1, 2, 0, 1, 2]
+```
+
+>***NOTE:*** *Where's subtraction? More information can be found [here](#subtracting-lists)*
+
+# Useful Methods for Lists
 
 ## Adding New Elements
 
@@ -411,60 +453,137 @@ print(newList)
 
 >Explaination: This method removes everything in a list.
 
-## Operations
-
-You can add lists together!
-
-```py
-list1 = [0, 1, 2]
-list2 = [3, 4, 5]
-
-newList= list1 + list2
-print(newList)
-# Output: [0, 1, 2, 3, 4, 5]
-```
-
-Multiplication... woah!
-
-```py
-list1 = [0, 1, 2]
-
-newList = list1 * 3
-print(newList)
-# Output: [0, 1, 2, 0, 1, 2, 0, 1, 2]
-```
-
->***NOTE:*** *Where's subtraction? More information can be found [here](#subtracting-lists)*
 
 # Nested Lists
 
-## Inititalizing a Nested List
-
 You can put lists inside of lists! This can help you when the data given is more organized and manageable in a grid-like layout.
+
+>***NOTE:*** *All the methods used in lists can be applied to nested lists. More information about list methods can be found [here](#useful-methods-for-lists)*
+
+## Inititalizing a Nested List
 
 To initialize a Nested List:
 
 ```py
-NewList = [[ 0, 1, 2, 3],
-	       [ 4, 5, 6, 7],
-           [8, 9, 10, 11]]
+newList = [[0, 1, 2, 3], [4, 5, 6, 7], [8, 9, 10, 11]]
 
 # or alternatively
 
-NewList = [[ 0, 1, 2, 3], [ 4, 5, 6, 7], [8, 9, 10, 11]]
+newList = [[0, 1, 2, 3],
+	       [4, 5, 6, 7],
+           [8, 9, 10, 11]]
 ```
 
 ## Retrieving Elements from a Nested List
 
+To retrive elements from a list, an index operator is used. It is written in this notation:
 
+```py
+listName[rowIndex][colIndex]
+```
 
->***NOTE:*** *All the methods used in lists can be applied to nested lists*
+You can also just retrieve a list from a nested list:
 
-***
+```py
+listName[rowIndex]
+```
+
+>***NOTE:*** *Indexes are zero-based numbering. This means that the initial number starts with 0 instead of 1.*
+
+```py
+newList = [[0, 1, 2, 3],
+	       [4, 5, 6, 7],
+           [8, 9, 10, 11]]
+
+print(newList[0][0]) 
+# Output: 0
+
+print(newList[2][3]) 
+# Output: 7
+
+print(newList[1]) 
+# Output: [4, 5, 6, 7]
+```
+
+You can also use negative indexes! Just remember that the index starts from the end.
+
+```py
+newList = [[0, 1, 2, 3],
+	       [4, 5, 6, 7],
+           [8, 9, 10, 11]]
+
+print(newList[-1][0]) 
+# Output: 8
+
+print(newList[-2][-2]) 
+# Output: 6
+
+print(newList[-2]) 
+# Output: [4, 5, 6, 7]
+```
+
+If you try to retrieve an element with an index number that is bigger than the length of the list (zero-based numbering) you will be hit with a “IndexError: list index out of range” error. Make sure that the index that you are trying to retrieve inside the bounds of the list.
+
+```py
+newList = [[0, 1, 2, 3],
+	       [4, 5, 6, 7],
+           [8, 9, 10, 11]]
+
+print(newList[3]) 
+# Output: IndexError: list index out of range
+
+print(newList[-4]) 
+# Output: IndexError: list index out of range
+
+print(newList[0][4]) 
+# Output: IndexError: list index out of range
+
+print(newList[0][-5]) 
+# Output: IndexError: list index out of range
+```
+
+## Modifying Elements in a Nested List
+
+To change an element or a list in a nested list:
+
+```py
+newList = [[0, 1, 2, 3],
+	       [4, 5, 6, 7],
+           [8, 9, 10, 11]]
+
+newList[1] = ['hello', 'world']
+print(newList)
+# Output: [[0, 1, 2, 3], ['hello', 'world'], [8, 9, 10, 11]]
+
+newList[2][-2] = 'BOO!'
+print(newList)
+# Output: [[0, 1, 2, 3], ['hello', 'world'], [8, 9, 'BOO!', 11]]
+```
+
+## Slicing a Nested List
+
+You can choose to slice the nested list itself or the lists inside it:
+
+```py
+newList = [[0, 1, 2, 3],
+	       [4, 5, 6, 7],
+           [8, 9, 10, 11]]
+
+print(newList[:2]) 
+# Output: [[0, 1, 2, 3], [4, 5, 6, 7]]
+
+print(newList[1:]) 
+# Output: [[4, 5, 6, 7], [8, 9, 10, 11]]
+
+print(newList[1][1:3]) 
+# Output: [5, 6]
+```
+
+>***NOTE:*** *Slicing works the exact same for a nested list as it does for a regular list. The parameters and functions of the parameters are exactly the same. More information about list slicing, can be found [here](#slicing-a-list)!*
 
 # Dictionaries
 
-***
+## Useful Methods for Dictionaries
 
 # Useful Code
 
@@ -549,9 +668,11 @@ for index in range(1, len(newList), 2):
 
 >***NOTE:*** *For more information on the range() function can be found [here] (placeholder)*
 
-## Converting ALL String Elements to Integers
+## Iterating over a Nested List
 
-Need to convert all the elements in a list form strings to integers? Check this out!
+## Iterating over a Dictionary
+
+## Converting ALL String Elements to Integers
 
 ```py
 newList = ['1', '2', '3', '4', '5']
@@ -578,8 +699,6 @@ print(convertedList)
 >***NOTE:*** *Make sure all the elements in the list you are converting to integers CAN be converted to integers. If you try to convert a non-integer value to an integer, you will be met with a "ValueError" error.*
 
 ## Converting ALL Integer Elements to Strings
-
-Need to convert all the elements in a list from integers to strings? Check this out!
 
 ```py
 newList = [1, 2, 3, 4, 5]
@@ -608,35 +727,56 @@ print(convertedList)
 ### Left Side
 
 ```py
+nestedList = [[1], [1, 2, 3, 4]]
+maxRowLen = 0
+
+for row in nestedList:
+  if len(row) > maxRowLen:
+            maxRowLen = len(row)
+
+for index, row in enumerate(nestedList):
+  if len(row) < maxRowLen:
+    diff = maxRowLen - len(row)
+
+    for i in range(diff):
+        nestedList[index].insert(0, ' ')
+
+# Output: [['1', ' ', ' ', ' '], ['1', '2', '3', '4']]    
 ```
 
 ### Right Side
 
 ```py
-    for index, row in enumerate(layout):
-        padding = []
+nestedList = [[1], [1, 2, 3, 4]]
+maxRowLen = 0
 
-        if len(row) < maxRowLen:
-            diff = maxRowLen - len(row)
+for row in nestedList:
+  if len(row) > maxRowLen:
+            maxRowLen = len(row)
 
-            for i in range(diff):
-                padding.append(' ')
-            
-            layout[index] = row + padding
+for index, row in enumerate(nestedList):
+  if len(row) < maxRowLen:
+    diff = maxRowLen - len(row)
+
+    for i in range(diff):
+        nestedList[index].append(' ')
+
+# Output: [[' ', ' ', ' ', '1'], ['1', '2', '3', '4']]    
 ```
 
 ## Subtracting Lists
-
-Need to remove elements in a list from another list? Check this out!
 
 ```py
 list1 = [0, 1, 2, 3, 4, 5]
 list2 = [3, 4, 5]
 
-newList = list(set(list1) - set(list2))
-print(newList)
+for element in list2:
+  list1.remove(element)
+print(list1)
 
-# Output: [1, 2, 3]
+# Output: [0, 1, 2]
 ```
+
+>***NOTE:*** *If you need the contents of the two lists involved in the subtraction to be intact, you can duplicate the list you are subtracting from beforehand!* 
 
 # Final Thoughts
