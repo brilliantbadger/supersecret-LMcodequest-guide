@@ -15,15 +15,11 @@ for _ in range(int(input())):
                 maxRowLen = len(row)
    
     for index, row in enumerate(layout):
-        padding = []
-
         if len(row) < maxRowLen:
             diff = maxRowLen - len(row)
 
             for i in range(diff):
-                padding.append(' ')
-            
-            layout[index] = row + padding
+                layout[index].append(' ')
 
     for rowIndex, row in enumerate(layout[:-1]):
         for colIndex in range(1, len(row), 2):

@@ -9,7 +9,10 @@ for _ in range(int(input())):
     for i in range(int(inp[1])):
         report.append(input())
     
-    inspect = list(set(database) - set(report))
+    inspect = database
+    for element in list2:
+        inspect.remove(element)
+
     inspect.sort(key=str.lower)
 
     for i in inspect:
