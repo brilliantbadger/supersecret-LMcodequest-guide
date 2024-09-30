@@ -36,12 +36,12 @@ Lists are a way to store multiple variables in order. There are multiple cases i
     - [Sorting a List (Reversed)](#sorting-a-list-reversed)
   - [Reversing a List](#reversing-a-list)
   - [Clearing a List](#clearing-a-list)
-- [Nested Lists](#nested-lists)
+- **[Nested Lists](#nested-lists)**
   - [Initializing a Nested List](#inititalizing-a-nested-list)
   - [Retrieving Elements from a Nested List](#retrieving-elements-from-a-list)
   - [Modifying Elements in a Nested List](#modifying-elements-in-a-nested-list)
   - [Slicing a Nested List](#slicing-a-nested-list)
-- [Dictionaries](#dictionaries)
+- **[Dictionaries](#dictionaries)**
 - **Useful Code**
   - Iterating over a List
     - [Using a for loop](#using-a-for-loop)
@@ -458,7 +458,7 @@ print(newList)
 
 You can put lists inside of lists! This can help you when the data given is more organized and manageable in a grid-like layout.
 
->***NOTE:*** *All the methods used in lists can be applied to nested lists. More information about list methods can be found [here](#useful-methods-for-lists)*
+>***NOTE:*** *All the methods used in lists can be applied to nested lists. Useful methods for lists are found [here](#useful-methods-for-lists)*
 
 ## Inititalizing a Nested List
 
